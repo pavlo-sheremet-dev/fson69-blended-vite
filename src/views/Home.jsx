@@ -13,8 +13,6 @@ export const Home = () => {
 
     getTrendingCocktails()
       .then((data) => {
-        console.log(data);
-
         setCocktails(data);
       })
       .catch((err) => console.log(err))
@@ -24,15 +22,14 @@ export const Home = () => {
   }, []);
   return (
     <>
-      {isLoading && <Loader />}
-
       <Section>
         <h1 className="text-center font-black text-gray-700 text-4xl mb-10">
           Trending cocktails
         </h1>
 
         <CocktailsList cocktails={cocktails} />
-      </Section>
+      </Section>{" "}
+      {isLoading && <Loader />}
     </>
   );
 };
